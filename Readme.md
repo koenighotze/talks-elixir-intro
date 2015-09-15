@@ -3,9 +3,14 @@
 This repo contains the slides and the Dockerfile used for a introduction-talk about
 Elixir.
 
-## The Dockerfile
+## The REPL
 
-As it is not yet pushed to Docker Hub...build it yourself.
+Using Docker, just run:
+```
+docker run -ti koenighotze/elixir 
+```
+
+...or build it yourself:
 
 ```
 cd Dockerfile
