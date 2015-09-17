@@ -17,6 +17,11 @@ RUN apt-get -y install elixir
 # todo setup postgres for phoenix
 WORKDIR /home/demo
 
+# setup volume for sharing scripts
+ENV SCRIPTS_VOLUME $HOME/src
+
+VOLUME [$SCRIPTS_VOLUME]
+
 # todo checkout demo app
 
 # Run REPL

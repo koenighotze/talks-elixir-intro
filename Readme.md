@@ -5,10 +5,23 @@ Elixir.
 
 ## The REPL
 
-Using Docker, just run:
+Install Docker. Now. Go!
+Back again? Ok....
+Just run the following for the REPL
+
 ```
-docker run -ti koenighotze/elixir 
+docker run -ti  koenighotze/elixir
 ```
+
+If you want to do real Elixir development, start docker like this:
+
+```
+docker run -ti -v <WHERE_ARE_YOUR_SCRIPTS>:/home/demo/src koenighotze/elixir /bin/bash
+```
+
+This will mount your local directory ```<WHERE_ARE_YOUR_SCRIPTS>``` as ```/home/demo/src```, so you can run scripts from there.
+
+## DIY
 
 ...or build it yourself:
 
