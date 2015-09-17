@@ -81,18 +81,16 @@
 						</section>
 
 						<section>
-							<h2>Run the Docker Image</h2>
+							<h2>Run the Docker Image - REPL-Style</h2>
 
 						<pre><code data-trim contenteditable>
-$ docker run -t -i msaraiva/elixir:1.0.5
-/ #
+$ docker run -ti koenighotze/elixir
 						</code></pre>
 					</section>
 					<section>
-						<h2>Start the REPL</h2>
+						<h2>Use the REPL</h2>
 
-					<pre><code data-trim contenteditable>
-/ # iex
+					<pre><code data-trim contenteditable class="elixir">
 Erlang/OTP 18 [erts-7.0.2] [source] [64-bit] [async-threads:10] [kernel-poll:false]
 
 Interactive Elixir (1.0.5) - press Ctrl+C to exit (type h() ENTER for help)
@@ -103,19 +101,26 @@ iex(2)>  2 + 2 + 2 + 2
 iex(3)>
 					</code></pre>
 				</section>
-				<section>
-					<h2>Start Exploring</h2>
 
-				<pre><code data-trim contenteditable>
-iex(1)> "hello" <> " world"
-"hello world"
-iex(2)>  2 + 2 + 2 + 2
-8
-iex(3)>
-				</code></pre>
+			<section>
+				<h2>Run the Docker Image - Development Style</h2>
+
+			<pre><code data-trim contenteditable>
+$ docker run -ti  -v &lt;YOUR_SCRIPT_DIR&gt;:/home/demo/src koenighotze/elixir /bin/bash
+/ #
+			</code></pre>
 			</section>
 
+		<section>
+				<h2>Run scripts</h2>
 
+			<pre><code data-trim contenteditable class="elixir">
+# cat hello_world.exs
+IO.puts "Hello World"
+# elixir hello_world.exs
+Hello World
+			</code></pre>
+			</section>
 				</section>
 
 				<section>
