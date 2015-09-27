@@ -41,6 +41,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
+
 					<h1>Elixir</h1>
 					<h3>Introduction for the Busy Developer</h3>
 					<p>
@@ -294,6 +295,10 @@ mix
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
+		<a href="https://github.com/koenighotze/talks-elixir-intro">
+			<img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png">
+		</a>
+
 		<script>
 
 			// Full list of configuration options available at:
@@ -317,6 +322,22 @@ mix
 				]
 			});
 
+		</script>
+
+		<script>
+					[].slice.call( document.querySelectorAll( '.share-reveal-facebook, .share-reveal-twitter' ) ).forEach( function( element ) {
+						element.addEventListener( 'click', function( event ) {
+							event.preventDefault();
+							var width = 500, height = 300;
+							var winTop = window.screenY + (window.screen.height / 2) - (height / 2);
+							var winLeft = window.screenX + (window.screen.width / 2) - (width / 2);
+							window.open(this.href, 'shre', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + width + ',height=' + height);
+						} );
+					} );
+
+					if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+						document.querySelector( '.fork-reveal' ).style.display = 'block';
+					}
 		</script>
 
 	</body>
