@@ -1,0 +1,22 @@
+ul.simple {
+  list-style: none;
+}
+
+section img.elixir-logo {
+  background-color: white;
+  border: medium none;
+  padding: 1em;
+}
+
+section img.simple-image {
+  border: none;
+  background-color: white;
+}
+
+section p {
+  text-align: left;
+}
+
+.something {
+  background-color: white;
+}
