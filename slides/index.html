@@ -44,10 +44,25 @@
 				<section data-state="something">
 					<h1>Elixir</h1>
 					<h3>Introduction for the Busy Developer</h3>
-					<img class="elixir-logo" src="http://elixir-lang.org/images/logo/logo.png"/>
+					<img class="elixir-logo" src="logo.png"/>
 					<p>
 						<small><a href="mailto:david.schmitz_AT_senacor.com?subject=Elixir">David Schmitz</a> / <a href="http://twitter.com/koenighotze">@koenighotze</a></small>
 					</p>
+				</section>
+
+				<section>
+					<h2>Why should I learn Elixir?</h2>
+					<ul class="simple">
+						<li  class="fragment">
+							...maybe OO is not the only way
+						</li>
+						<li  class="fragment">
+							...maybe functional programming does not require creepy, complex syntax
+						</li>
+						<li  class="fragment">
+							Don't be a robot - Think for yourself!
+						</li>
+					</ul>
 				</section>
 
 				<section>
@@ -70,26 +85,38 @@
 
 				<section>
 					<h2>Enter Elixir</h2>
+					<img class="simple-image" src="X_all_the_Y.png"/>
 				</section>
 
 				<section>
 					<h2>Power(Erlang) + Nice Syntax + More</h2>
 					<ul class="simple">
-						<li>Pragmatic functional programming</li>
-						<li>Scalable and fault tolerant plattform</li>
-						<li>Meta-Programming and DSLs</li>
-						<li>REPL</li>
-						<li>Erlang compatible</li>
+						<li class="fragment">Pragmatic functional programming</li>
+						<li class="fragment">Scalable and fault tolerant plattform; </li>
+						<li class="fragment">Meta-Programming and DSLs</li>
+						<li class="fragment">REPL</li>
+						<li class="fragment">Erlang compatible</li>
 					</ul>
 				</section>
 
+				<section>
+					<h2>Taste the Power of Elixir</h2>
+<pre>
+<code data-trim contenteditable class="elixir">
+1..1000000
+	|&amp;&gt; Enum.map(&amp;  (Task.async(fn -&gt; &amp;1 * &amp;1 end ) ))
+	|&amp;&gt; Enum.map(&amp;Task.await/1)
+</code>
+</pre>
+Yes, in fact 1000000 processes.
+				</section>
 
 				<section>
 						<section>
 						<h2>Elixir Quickstart</h2>
 							<ul class="simple">
-								<li>Use Docker...</li>
-								<li>Start the REPL and get going</li>
+								<li class="fragment">Use Docker...</li>
+								<li class="fragment">Start the REPL and get going</li>
 							</ul>
 						</section>
 
@@ -107,11 +134,11 @@ $ docker run -ti koenighotze/elixir
 Erlang/OTP 18 [erts-7.0.2] [source] [64-bit] [async-threads:10] [kernel-poll:false]
 
 Interactive Elixir (1.0.5) - press Ctrl+C to exit (type h() ENTER for help)
-iex(1)> "hello" <> " world"
-"hello world"
-iex(2)>  2 + 2 + 2 + 2
+iex(1)&gt; &quot;hello&quot; &lt;&gt; &quot; world&quot;
+&quot;hello world&quot;
+iex(2)&gt;  2 + 2 + 2 + 2
 8
-iex(3)>
+iex(3)&gt;
 					</code></pre>
 				</section>
 
@@ -130,9 +157,10 @@ $ docker run -ti  -v &lt;YOUR_SCRIPT_DIR&gt;:/home/demo/src \
 				<h2>Run scripts</h2>
 
 			<pre><code data-trim contenteditable class="elixir">
-# cat hello_world.exs
+/ # cat hello_world.exs
 IO.puts "Hello World"
-# elixir hello_world.exs
+
+/ # elixir hello_world.exs
 Hello World
 			</code></pre>
 			</section>
@@ -142,90 +170,71 @@ Hello World
 					<section>
 						<h2>Language Basics</h2>
 
-						<pre><code data-trim contenteditable>
-						</code></pre>
+						<p>Speedy introduction to Elixir, so that we can move on to the fun parts.</p>
 
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="50" data-src="arrow.png" alt="Down arrow">
-						</a>
+						<ul class="simple">
+							<li class="fragment">Pattern matching</li>
+							<li class="fragment">Collections</li>
+							<li class="fragment">Control flow</li>
+							<li class="fragment">Unit testing</li>
+							<li class="fragment">Modules</li>
+						</ul>
 					</section>
 
 					<section>
-						<h2>...</h2>
-
-						<pre><code data-trim contenteditable>
-						</code></pre>
-					</section>
-
-					<section>
-						<h2>...</h2>
+						<h2>Pattern matching</h2>
 
 						<pre><code data-trim contenteditable>
 						</code></pre>
 					</section>
 
 					<section>
-						<h2>...</h2>
+						<h2>Collections</h2>
 
 						<pre><code data-trim contenteditable>
 						</code></pre>
 					</section>
 
+					<section>
+						<h2>Control flow</h2>
+
+						<pre><code data-trim contenteditable>
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Unit Testing</h2>
+
+						<pre><code data-trim contenteditable>
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Modules</h2>
+
+						<pre><code data-trim contenteditable>
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
-					<h2>Unit Testing</h2>
-
-					<pre><code data-trim contenteditable>
-					</code></pre>
+					<h2>And now...the advanced stuff</h2>
 				</section>
-
-				<section>
-					<h2>Pattern Matching</h2>
-
-					<pre><code data-trim contenteditable>
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Maps and Dictionaries</h2>
-
-					<pre><code data-trim contenteditable>
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Meta Programming</h2>
-
-					<pre><code data-trim contenteditable>
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Comprehensions</h2>
-
-					<pre><code data-trim contenteditable>
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Modules</h2>
-
-					<pre><code data-trim contenteditable>
-					</code></pre>
-				</section>
-
 
 				<section>
 					<section>
-						<h2>The Elixir Platform</h2>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="50" data-src="arrow.png" alt="Down arrow">
-						</a>
-					</section>
+					<h2>Concurrency</h2>
 
+					<ul class="simple">
+						<li class="fragment">Processes and nodes</li>
+						<li class="fragment">OTP</li>
+						<li class="fragment">Tasks and agents</li>
+					</ul>
+					</section>
+					<section>
+						<h2>Processes and nodes</h2>
+
+					</section>
 					<section>
 						<h2>Scalability: Lightweight Processes</h2>
 
@@ -239,15 +248,35 @@ Hello World
 						<pre><code data-trim contenteditable>
 						</code></pre>
 					</section>
+					<section>
+						<h2>OTP</h2>
+					</section>
+					<section>
+						<h2>Tasks and agents</h2>
+					</section>
+				</section>
+
+				<section>
+					<h2>Meta Programming</h2>
+
+					<pre><code data-trim contenteditable>
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Protocols</h2>
+					Polymorphic functions...
+					<pre><code data-trim contenteditable>
+					</code></pre>
 				</section>
 
 				<section>
 					<section>
 					<h2>Sample Real World Applications</h2>
 					<ul class="simple">
-						<li>Simple Web Application</li>
-						<li>Book Database that integrates with Amazon</li>
-						<li>CRUD</li>
+						<li class="fragment">Simple Web Application</li>
+						<li class="fragment">Book Database that integrates with Amazon</li>
+						<li class="fragment">CRUD</li>
 					</ul>
 					<p><a href="github">github.com/koenighotze/busy_elixir_app</a></p>
 					<br>
@@ -258,22 +287,22 @@ Hello World
 					<section>
 						<h2>Overview</h2>
 						<ul class="simple">
-							<li>Build system: mix</li>
-							<li>Web framework: Phoenix</li>
+							<li class="fragment">Build system: mix</li>
+							<li class="fragment">Web framework: Phoenix</li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>Mix - The Build System</h2>
 						<ul class="simple">
-							<li></li>
+							<li class="fragment"></li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>Phoenix - The Web Framework</h2>
 						<ul class="simple">
-							<li></li>
+							<li class="fragment"></li>
 						</ul>
 					</section>
 
