@@ -19,6 +19,7 @@
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/koenighotze.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -40,10 +41,10 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
-
+				<section data-state="something">
 					<h1>Elixir</h1>
 					<h3>Introduction for the Busy Developer</h3>
+					<img class="elixir-logo" src="http://elixir-lang.org/images/logo/logo.png"/>
 					<p>
 						<small><a href="mailto:david.schmitz_AT_senacor.com?subject=Elixir">David Schmitz</a> / <a href="http://twitter.com/koenighotze">@koenighotze</a></small>
 					</p>
@@ -51,20 +52,31 @@
 
 				<section>
 					<h2>About Erlang</h2>
-					<ul>
-						<li>Six Nines Availability</li>
-						<li>OTP: Open Telecom Platform</li>
-						<li>Build by Ericsson back in the days (Remember He-Man?)</li>
-						<li>Many so called <i>modern</i> paradigms build in (Messaging, Pattern Matching...)</li>
-						<li>God-awful Prolog-style syntax</li>
+					<ul class="simple">
+						<li  class="fragment">
+							Six Nines Availability
+						</li>
+						<li class="fragment">
+							OTP: Open Telecom Platform
+						</li>
+						<li class="fragment">
+							Build by Ericsson back in the days (Remember <a href="http://i0.huffpost.com/gen/709271/images/s-MASTERS-OF-THE-UNIVERSE-MOVIE-large.jpg">He-Man</a>?)
+						</li>
+						<li class="fragment">
+						Many so called <i>modern</i> paradigms build in (Messaging, Pattern Matching...)
+						</li>
 					</ul>
 				</section>
 
 				<section>
+					<h2>Enter Elixir</h2>
+				</section>
+
+				<section>
 					<h2>Power(Erlang) + Nice Syntax + More</h2>
-					<ul>
+					<ul class="simple">
+						<li>Pragmatic functional programming</li>
 						<li>Scalable and fault tolerant plattform</li>
-						<li>Functional programming</li>
 						<li>Meta-Programming and DSLs</li>
 						<li>REPL</li>
 						<li>Erlang compatible</li>
@@ -75,7 +87,7 @@
 				<section>
 						<section>
 						<h2>Elixir Quickstart</h2>
-							<ul>
+							<ul class="simple">
 								<li>Use Docker...</li>
 								<li>Start the REPL and get going</li>
 							</ul>
@@ -107,7 +119,9 @@ iex(3)>
 				<h2>Run the Docker Image - Development Style</h2>
 
 			<pre><code data-trim contenteditable>
-$ docker run -ti  -v &lt;YOUR_SCRIPT_DIR&gt;:/home/demo/src koenighotze/elixir /bin/bash
+$ docker run -ti  -v &lt;YOUR_SCRIPT_DIR&gt;:/home/demo/src \
+		koenighotze/elixir \
+		/bin/bash
 / #
 			</code></pre>
 			</section>
@@ -230,7 +244,7 @@ Hello World
 				<section>
 					<section>
 					<h2>Sample Real World Applications</h2>
-					<ul>
+					<ul class="simple">
 						<li>Simple Web Application</li>
 						<li>Book Database that integrates with Amazon</li>
 						<li>CRUD</li>
@@ -243,7 +257,7 @@ Hello World
 					</section>
 					<section>
 						<h2>Overview</h2>
-						<ul>
+						<ul class="simple">
 							<li>Build system: mix</li>
 							<li>Web framework: Phoenix</li>
 						</ul>
@@ -251,14 +265,14 @@ Hello World
 
 					<section>
 						<h2>Mix - The Build System</h2>
-						<ul>
+						<ul class="simple">
 							<li></li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>Phoenix - The Web Framework</h2>
-						<ul>
+						<ul class="simple">
 							<li></li>
 						</ul>
 					</section>
@@ -308,6 +322,9 @@ mix
 				progress: true,
 				history: true,
 				center: true,
+				slideNumber: true,
+				help: true,
+				previewLinks: true,
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
@@ -322,22 +339,6 @@ mix
 				]
 			});
 
-		</script>
-
-		<script>
-					[].slice.call( document.querySelectorAll( '.share-reveal-facebook, .share-reveal-twitter' ) ).forEach( function( element ) {
-						element.addEventListener( 'click', function( event ) {
-							event.preventDefault();
-							var width = 500, height = 300;
-							var winTop = window.screenY + (window.screen.height / 2) - (height / 2);
-							var winLeft = window.screenX + (window.screen.width / 2) - (width / 2);
-							window.open(this.href, 'shre', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + width + ',height=' + height);
-						} );
-					} );
-
-					if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
-						document.querySelector( '.fork-reveal' ).style.display = 'block';
-					}
 		</script>
 
 	</body>
