@@ -41,6 +41,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
 				<section data-state="something">
 					<h1>Elixir</h1>
 					<h3>Introduction for the Busy Developer</h3>
@@ -49,6 +50,8 @@
 						<small><a href="mailto:david.schmitz_AT_senacor.com?subject=Elixir">David Schmitz</a> / <a href="http://twitter.com/koenighotze">@koenighotze</a></small>
 					</p>
 				</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 				<section>
 					<h2>Why should I learn Elixir?</h2>
@@ -64,6 +67,8 @@
 						</li>
 					</ul>
 				</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 				<section>
 					<h2>About Erlang</h2>
@@ -83,10 +88,15 @@
 					</ul>
 				</section>
 
+
+<!-- ////////////////////////////////////////////////////////  -->
+
 				<section>
 					<h2>Enter Elixir</h2>
 					<img class="simple-image" src="X_all_the_Y.png"/>
 				</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 				<section>
 					<h2>Power(Erlang) + Nice Syntax + More</h2>
@@ -98,6 +108,8 @@
 						<li class="fragment">Erlang compatible</li>
 					</ul>
 				</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 				<section>
 					<h2>Taste the Power of Elixir</h2>
@@ -115,8 +127,8 @@ Yes, in fact 1000000 processes.
 						<section>
 						<h2>Elixir Quickstart</h2>
 							<ul class="simple">
-								<li class="fragment">Use Docker...</li>
-								<li class="fragment">Start the REPL and get going</li>
+								<li>Use Docker...</li>
+								<li>Start the REPL and get going</li>
 							</ul>
 						</section>
 
@@ -140,7 +152,18 @@ iex(2)&gt;  2 + 2 + 2 + 2
 8
 iex(3)&gt;
 					</code></pre>
+Just remember, <code>CTRL+C</code> twice to exit.
 				</section>
+
+				<section>
+							<h2>Getting help</h2>
+							<p>For example, the documentation for <code>IO.puts</code> can be found using:</p>
+							<pre><code data-trim contenteditable class="elixir">
+iex(3)> h IO.puts
+							</code></pre>
+<p>Keep in mind, that <code>h</code> is short for <code>h/0</code>, meaning <code>h</code> with no arguments.</p>
+				</section>
+
 
 			<section>
 				<h2>Run the Docker Image - Development Style</h2>
@@ -151,28 +174,41 @@ $ docker run -ti  -v &lt;YOUR_SCRIPT_DIR&gt;:/home/demo/src \
 		/bin/bash
 / #
 			</code></pre>
+
+			Demo code is located in <code>/home/demo/code</code>
 			</section>
 
 		<section>
 				<h2>Run scripts</h2>
-
+			<p>From the commandline</p>
 			<pre><code data-trim contenteditable class="elixir">
-/ # cat hello_world.exs
+/ # cat hello.exs
 IO.puts "Hello World"
 
 / # elixir hello_world.exs
 Hello World
 			</code></pre>
+
+<p>From the REPL</p>
+<pre><code data-trim contenteditable class="elixir">
+iex(1)> import_file "hello.exs"
+</code></pre>
 			</section>
 				</section>
 
-				<section>
+				<!-- <section>
+						<h2>Compiling</h2>
+
+				</section> -->
+<!-- ////////////////////////////////////////////////////////  -->
+
 					<section>
 						<h2>Language Basics</h2>
 
 						<p>Speedy introduction to Elixir, so that we can move on to the fun parts.</p>
 
 						<ul class="simple">
+							<li class="fragment">Immutability</li>
 							<li class="fragment">Pattern matching</li>
 							<li class="fragment">Collections</li>
 							<li class="fragment">Control flow</li>
@@ -180,46 +216,116 @@ Hello World
 							<li class="fragment">Modules</li>
 						</ul>
 					</section>
+<!-- ////////////////////////////////////////////////////////  -->
+<section>
+	<section>
+	<h2>Immutability</h2>
+	<ul class="simple">
+		<li >Assignment is an assertion</li>
+		<li >Un-unlearning algebraic meaning of <code>=</code></li>
+	</ul>
+
+<pre><code data-trim contenteditable class="elixir">
+x = a + 1
+</pre></code>
+
+
+	</section>
+</section
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 					<section>
+						<section>
 						<h2>Pattern matching</h2>
+						</section>
 
-						<pre><code data-trim contenteditable>
+						<section>
+							<h2>Simple examples</h2>
+							<pre><code data-trim contenteditable class="elixir">
+iex(1)> a = [1, 2, 3]
+[1, 2, 3]
+
+iex(5)> [a, b] = [1, 2]
+[1, 2]
+iex(6)> [a, b] = [1, 2, 3]
+** (MatchError) no match of right hand side value: [1, 2, 3]
+
+iex(8)> [a] = [[1, 2, 3]]
+[[1, 2, 3]]
+iex(9)> a
+[1, 2, 3]
+
+iex(10)> [[a]] = [[1, 2, 3]]
+** (MatchError) no match of right hand side value: [[1, 2, 3]]
+
+iex(10)> [a, b, _] = [1, 2, 3]
+[1, 2, 3]
 						</code></pre>
+						</section>
+
+						<section>
+							<h2>Bindings</h2>
+							<pre><code data-trim contenteditable class="elixir">
+iex(12)> [a, b, a] = [1, 2, 3]
+** (MatchError) no match of right hand side value: [1, 2, 3]
+
+iex(12)> [a, b, a] = [1, 2, 1]
+[1, 2, 1]
+
+iex(18)> a = 2
+2
+iex(19)> ^a = 1
+** (MatchError) no match of right hand side value: 1
+							</code></pre>
+						</section>
+
+
 					</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 					<section>
 						<h2>Collections</h2>
 
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim contenteditable class="elixir">
 						</code></pre>
 					</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 					<section>
 						<h2>Control flow</h2>
 
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim contenteditable class="elixir">
 						</code></pre>
 					</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 					<section>
 						<h2>Unit Testing</h2>
 
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim contenteditable class="elixir">
 						</code></pre>
 					</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 					<section>
 						<h2>Modules</h2>
 
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim contenteditable class="elixir">
 						</code></pre>
 					</section>
-				</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 				<section>
 					<h2>And now...the advanced stuff</h2>
 				</section>
+
+<!-- ////////////////////////////////////////////////////////  -->
 
 				<section>
 					<section>

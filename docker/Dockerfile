@@ -13,16 +13,17 @@ RUN apt-get -y install wget
 RUN wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && dpkg -i erlang-solutions_1.0_all.deb
 RUN apt-get -qq update
 RUN apt-get -y install elixir
+RUN apt-get -y install git
 
 # todo setup postgres for phoenix
 WORKDIR /home/demo
+
+RUN git clone git@github.com:koenighotze/elixir-tutorial-demo-code code
 
 # setup volume for sharing scripts
 ENV SCRIPTS_VOLUME $HOME/src
 
 VOLUME [$SCRIPTS_VOLUME]
-
-# todo checkout demo app
 
 # Run REPL
 CMD ["iex"]
