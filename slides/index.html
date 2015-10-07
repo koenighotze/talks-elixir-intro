@@ -74,7 +74,7 @@
 					<h2>About Erlang</h2>
 					<ul class="simple">
 						<li  class="fragment">
-							Six Nines Availability
+							Six Nines Availability (Ever seen WhatsApp crash?)
 						</li>
 						<li class="fragment">
 							OTP: Open Telecom Platform
@@ -84,6 +84,9 @@
 						</li>
 						<li class="fragment">
 						Many so called <i>modern</i> paradigms build in (Messaging, Pattern Matching...)
+						</li>
+						<li  class="fragment">
+							Awesome virtual machine
 						</li>
 					</ul>
 				</section>
@@ -209,8 +212,9 @@ iex(1)> import_file "hello.exs"
 
 						<ul class="simple">
 							<li class="fragment">Immutability</li>
-							<li class="fragment">Pattern matching</li>
+							<li class="fragment">Types</li>
 							<li class="fragment">Collections</li>
+							<li class="fragment">Pattern matching</li>
 							<li class="fragment">Control flow</li>
 							<li class="fragment">Unit testing</li>
 							<li class="fragment">Modules</li>
@@ -220,19 +224,110 @@ iex(1)> import_file "hello.exs"
 <section>
 	<section>
 	<h2>Immutability</h2>
-	<ul class="simple">
+	<blockquote cite="linktotweet">
+		&ldquo;GOTO was evil because we asked, how did I get to this point
+		of execution?'
+
+		Mutability leaves us with, 'how did I get to this state?'&rdquo;
+	</blockquote>
+	</section>
+
+	<section>
+	<h2>Everything is immutable - The End</h2>
+	<ul>
 		<li >Assignment is an assertion</li>
 		<li >Un-unlearning algebraic meaning of <code>=</code></li>
 	</ul>
-
-<pre><code data-trim contenteditable class="elixir">
-x = a + 1
-</pre></code>
-
-
 	</section>
 </section
 
+<!-- ////////////////////////////////////////////////////////  -->
+	<section>
+	<h2>Types</h2>
+<pre><code data-trim contenteditable class="elixir">
+# integers
+a = 1_000_000
+IO.puts a
+
+# atoms
+b = :foo
+IO.puts b
+
+# ranges
+Enum.each 1..5, &IO.puts &1
+
+# Perl-regex
+Regex.replace ~r{[xyz]}i, "SXMYAZRXT", "_"
+"S_M_A_R_T"
+</code></pre>
+	</section>
+
+	<!-- ////////////////////////////////////////////////////////  -->
+		<section>
+				<section>
+					<h2>Collections - Tuples</h2>
+
+					<pre><code data-trim contenteditable class="elixir">
+iex(14)> {status, file} = File.open("/etc/hosts")
+{:ok, #PID<0.75.0>}
+
+iex(17)> {:ok, file} = File.open("/etc/notthere")
+** (MatchError) no match of right hand side value: {:error, :enoent}
+					</code></pre>
+				</section>
+				<section>
+					<h2>Collections - Lists</h2>
+
+					<pre><code data-trim contenteditable class="elixir">
+iex(30)> [head | tail] = a
+[1, 2, 3]
+iex(32)> ^head = 1
+iex(34)> ^tail = [2, 3]
+
+iex(37)> a ++ [4, 5, 6]
+[1, 2, 3, 4, 5, 6]
+
+iex(38)> a -- [1, 2]
+[3]
+
+iex(39)> 1 in a
+true
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Collections - Keyword list</h2>
+
+					<pre><code data-trim contenteditable class="elixir">
+iex(3)> a = [zip: 40589, city: "Düsseldorf", team: "F95"]
+[zip: 40589, city: "Düsseldorf", team: "F95"]
+
+iex(5)> [h | t] = a
+[zip: 40589, city: "Düsseldorf", team: "F95"]
+
+iex(6)> h
+{:zip, 40589}
+					</code></pre>
+				</section>
+
+
+				<section>
+					<h2>Collections - Maps</h2>
+
+					<pre><code data-trim contenteditable class="elixir">
+iex(11)> world = %{ :germany => [1954, 1974, 1990, 2014], :netherlands => [] }
+%{germany: [1954, 1974, 1990, 2014], netherlands: []}
+
+iex(12)> world[:germany]
+[1954, 1974, 1990, 2014]
+
+iex(13)> world.germany
+[1954, 1974, 1990, 2014]
+					</code></pre>
+				</section>
+
+
+		</section>
 <!-- ////////////////////////////////////////////////////////  -->
 
 					<section>
@@ -283,14 +378,7 @@ iex(19)> ^a = 1
 
 					</section>
 
-<!-- ////////////////////////////////////////////////////////  -->
 
-					<section>
-						<h2>Collections</h2>
-
-						<pre><code data-trim contenteditable class="elixir">
-						</code></pre>
-					</section>
 
 <!-- ////////////////////////////////////////////////////////  -->
 
@@ -331,6 +419,9 @@ iex(19)> ^a = 1
 					<section>
 					<h2>Concurrency</h2>
 
+					PID: a PID is a refernce to a process
+
+					Port: a reference to a resource for reading or writing
 					<ul class="simple">
 						<li class="fragment">Processes and nodes</li>
 						<li class="fragment">OTP</li>
@@ -426,16 +517,22 @@ mix
 
 				<section>
 					<h2>Online Resources</h2>
-					Try one of these great vaults of wisdom:
-					<p>
-						<a href="http://elixir-lang.org/">Elixir Homepage</a>
-					</p>
+					<p>Try one of these great vaults of wisdom:</p>
+
+					<ul>
+						<li><a href="http://elixir-lang.org/">Elixir Homepage</a></li>
+						<li>Dave Thomas, Programming Elixir</li>
+						<li>José Valim, Introduction to Elixir - a New Language on the VM (TODO Youtube-link)</li>
+					</ul>
 				</section>
 
 
 				<section style="text-align: left;">
 					<h1>Thank You!</h1>
 					Questions? Feedback?
+					<p>
+						<small><a href="mailto:david.schmitz_AT_senacor.com?subject=Elixir">David Schmitz</a> / <a href="http://twitter.com/koenighotze">@koenighotze</a></small>
+					</p>
 				</section>
 			</div>
 
