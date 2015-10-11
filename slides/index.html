@@ -73,6 +73,12 @@
 				<section>
 					<h2>About Erlang</h2>
 					<ul class="simple">
+						<li class="fragment">
+							Build by Ericsson back in the days (Remember <a href="http://i0.huffpost.com/gen/709271/images/s-MASTERS-OF-THE-UNIVERSE-MOVIE-large.jpg">He-Man</a>?)
+						</li>
+						<li  class="fragment">
+							Awesome virtual machine
+						</li>
 						<li  class="fragment">
 							Six Nines Availability (Ever seen WhatsApp crash?)
 						</li>
@@ -80,13 +86,7 @@
 							OTP: Open Telecom Platform
 						</li>
 						<li class="fragment">
-							Build by Ericsson back in the days (Remember <a href="http://i0.huffpost.com/gen/709271/images/s-MASTERS-OF-THE-UNIVERSE-MOVIE-large.jpg">He-Man</a>?)
-						</li>
-						<li class="fragment">
 						Many so called <i>modern</i> paradigms build in (Messaging, Pattern Matching...)
-						</li>
-						<li  class="fragment">
-							Awesome virtual machine
 						</li>
 					</ul>
 				</section>
@@ -105,7 +105,7 @@
 					<h2>Power(Erlang) + Nice Syntax + More</h2>
 					<ul class="simple">
 						<li class="fragment">Pragmatic functional programming</li>
-						<li class="fragment">Scalable and fault tolerant plattform; </li>
+						<li class="fragment">Scalable and fault tolerant plattform</li>
 						<li class="fragment">Meta-Programming and DSLs</li>
 						<li class="fragment">REPL</li>
 						<li class="fragment">Erlang compatible</li>
@@ -118,12 +118,14 @@
 					<h2>Taste the Power of Elixir</h2>
 <pre>
 <code data-trim contenteditable class="elixir">
-1..1000000
+
+1..1_000_000
 	|&amp;&gt; Enum.map(&amp;  (Task.async(fn -&gt; &amp;1 * &amp;1 end ) ))
 	|&amp;&gt; Enum.map(&amp;Task.await/1)
+
 </code>
 </pre>
-Yes, in fact 1000000 processes.
+Yes, in fact 1.000.000 processes.
 				</section>
 
 				<section>
@@ -254,11 +256,11 @@ b = :foo
 IO.puts b
 
 # ranges
-Enum.each 1..5, &IO.puts &1
+Enum.each 1..5, &amp;IO.puts &amp;1
 
 # Perl-regex
-Regex.replace ~r{[xyz]}i, "SXMYAZRXT", "_"
-"S_M_A_R_T"
+Regex.replace ~r{[xyz]}i, &quot;SXMYAZRXT&quot;, &quot;_&quot;
+&quot;S_M_A_R_T&quot;
 </code></pre>
 	</section>
 
@@ -268,10 +270,10 @@ Regex.replace ~r{[xyz]}i, "SXMYAZRXT", "_"
 					<h2>Collections - Tuples</h2>
 
 					<pre><code data-trim contenteditable class="elixir">
-iex(14)> {status, file} = File.open("/etc/hosts")
-{:ok, #PID<0.75.0>}
+iex(14)&gt; {status, file} = File.open(&quot;/etc/hosts&quot;)
+{:ok, #PID&lt;0.75.0&gt;}
 
-iex(17)> {:ok, file} = File.open("/etc/notthere")
+iex(17)&gt; {:ok, file} = File.open(&quot;/etc/notthere&quot;)
 ** (MatchError) no match of right hand side value: {:error, :enoent}
 					</code></pre>
 				</section>
@@ -279,18 +281,18 @@ iex(17)> {:ok, file} = File.open("/etc/notthere")
 					<h2>Collections - Lists</h2>
 
 					<pre><code data-trim contenteditable class="elixir">
-iex(30)> [head | tail] = a
+iex(30)&gt; [head | tail] = a
 [1, 2, 3]
-iex(32)> ^head = 1
-iex(34)> ^tail = [2, 3]
+iex(32)&gt; ^head = 1
+iex(34)&gt; ^tail = [2, 3]
 
-iex(37)> a ++ [4, 5, 6]
+iex(37)&gt; a ++ [4, 5, 6]
 [1, 2, 3, 4, 5, 6]
 
-iex(38)> a -- [1, 2]
+iex(38)&gt; a -- [1, 2]
 [3]
 
-iex(39)> 1 in a
+iex(39)&gt; 1 in a
 true
 					</code></pre>
 				</section>
@@ -299,13 +301,13 @@ true
 					<h2>Collections - Keyword list</h2>
 
 					<pre><code data-trim contenteditable class="elixir">
-iex(3)> a = [zip: 40589, city: "Düsseldorf", team: "F95"]
-[zip: 40589, city: "Düsseldorf", team: "F95"]
+iex(3)&gt; a = [zip: 40589, city: &quot;D&uuml;sseldorf&quot;, team: &quot;F95&quot;]
+[zip: 40589, city: &quot;D&uuml;sseldorf&quot;, team: &quot;F95&quot;]
 
-iex(5)> [h | t] = a
-[zip: 40589, city: "Düsseldorf", team: "F95"]
+iex(5)&gt; [h | t] = a
+[zip: 40589, city: &quot;D&uuml;sseldorf&quot;, team: &quot;F95&quot;]
 
-iex(6)> h
+iex(6)&gt; h
 {:zip, 40589}
 					</code></pre>
 				</section>
@@ -315,18 +317,17 @@ iex(6)> h
 					<h2>Collections - Maps</h2>
 
 					<pre><code data-trim contenteditable class="elixir">
-iex(11)> world = %{ :germany => [1954, 1974, 1990, 2014], :netherlands => [] }
+iex(11)&gt; world = %{ :germany =&gt; [1954, 1974, 1990, 2014],
+                    :netherlands =&gt; [] }
 %{germany: [1954, 1974, 1990, 2014], netherlands: []}
 
-iex(12)> world[:germany]
+iex(12)&gt; world[:germany]
 [1954, 1974, 1990, 2014]
 
-iex(13)> world.germany
+iex(13)&gt; world.germany
 [1954, 1974, 1990, 2014]
 					</code></pre>
 				</section>
-
-
 		</section>
 <!-- ////////////////////////////////////////////////////////  -->
 
@@ -338,23 +339,23 @@ iex(13)> world.germany
 						<section>
 							<h2>Simple examples</h2>
 							<pre><code data-trim contenteditable class="elixir">
-iex(1)> a = [1, 2, 3]
+iex(1)&gt; a = [1, 2, 3]
 [1, 2, 3]
 
-iex(5)> [a, b] = [1, 2]
+iex(5)&gt; [a, b] = [1, 2]
 [1, 2]
-iex(6)> [a, b] = [1, 2, 3]
+iex(6)&gt; [a, b] = [1, 2, 3]
 ** (MatchError) no match of right hand side value: [1, 2, 3]
 
-iex(8)> [a] = [[1, 2, 3]]
+iex(8)&gt; [a] = [[1, 2, 3]]
 [[1, 2, 3]]
-iex(9)> a
+iex(9)&gt; a
 [1, 2, 3]
 
-iex(10)> [[a]] = [[1, 2, 3]]
+iex(10)&gt; [[a]] = [[1, 2, 3]]
 ** (MatchError) no match of right hand side value: [[1, 2, 3]]
 
-iex(10)> [a, b, _] = [1, 2, 3]
+iex(10)&gt; [a, b, _] = [1, 2, 3]
 [1, 2, 3]
 						</code></pre>
 						</section>
@@ -362,20 +363,18 @@ iex(10)> [a, b, _] = [1, 2, 3]
 						<section>
 							<h2>Bindings</h2>
 							<pre><code data-trim contenteditable class="elixir">
-iex(12)> [a, b, a] = [1, 2, 3]
+iex(12)&gt; [a, b, a] = [1, 2, 3]
 ** (MatchError) no match of right hand side value: [1, 2, 3]
 
-iex(12)> [a, b, a] = [1, 2, 1]
+iex(12)&gt; [a, b, a] = [1, 2, 1]
 [1, 2, 1]
 
-iex(18)> a = 2
+iex(18)&gt; a = 2
 2
-iex(19)> ^a = 1
+iex(19)&gt; ^a = 1
 ** (MatchError) no match of right hand side value: 1
 							</code></pre>
 						</section>
-
-
 					</section>
 
 
@@ -494,6 +493,11 @@ iex(19)> ^a = 1
 						<ul class="simple">
 							<li class="fragment"></li>
 						</ul>
+<pre><code data-trim contenteditable class="bash">
+$ mix new cool-new-project
+$ cd cool-new-project
+$ mix test
+</code></pre>
 					</section>
 
 					<section>
