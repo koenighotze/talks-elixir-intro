@@ -264,6 +264,22 @@ Regex.replace ~r{[xyz]}i, &quot;SXMYAZRXT&quot;, &quot;_&quot;
 </code></pre>
 	</section>
 
+
+	<!-- ////////////////////////////////////////////////////////  -->
+		<section>
+				<section>
+					<h2>Anonymous functions</h2>
+<pre><code data-trim contenteditable class="elixir">
+iex(1)> sum = fn a, b -> a + b end
+#Function<12.54118792/2 in :erl_eval.expr/5>
+iex(3)> sum.(1, 2)
+</code></pre>
+
+<p>And yes, the dot is needed, even if the function takes no arguments.</p>
+<p>And no, that is not an assigment! Elixir has nothing like assignments.</p>
+				</section>
+		</section>
+
 	<!-- ////////////////////////////////////////////////////////  -->
 		<section>
 				<section>
@@ -391,10 +407,38 @@ iex(19)&gt; ^a = 1
 <!-- ////////////////////////////////////////////////////////  -->
 
 					<section>
-						<h2>Unit Testing</h2>
+						<section>
+							<h2>Unit Testing</h2>
 
-						<pre><code data-trim contenteditable class="elixir">
-						</code></pre>
+							<pre><code data-trim contenteditable class="elixir">
+defmodule Ex3Test do
+  use ExUnit.Case
+
+  test "list concat concats two lists" do
+    list_concat = fn a, b -> a ++ b end
+
+    assert list_concat.([:a, :b], [:c, :d]) == [:a, :b, :c, :d]
+  end
+end
+
+							</code></pre>
+						</section>
+						<section>
+							<h2>Running tests</h2>
+
+							<pre><code data-trim contenteditable class="bash">
+$ mix test  --trace
+Ex3Test
+  * list concat concats two lists (0.00ms)
+
+Finished in 0.03 seconds (0.03s on load, 0.00s on tests)
+1 test, 0 failures
+
+Randomized with seed 632080
+							</code></pre>
+						</section>
+
+
 					</section>
 
 <!-- ////////////////////////////////////////////////////////  -->
