@@ -1,153 +1,144 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>Elixir - Erlang for the modern developer</title>
+    <title>Elixir - Erlang for the modern developer</title>
 
-		<meta name="description" content="">
-		<meta name="author" content="David Schmitz">
+    <meta name="description" content="">
+    <meta name="author" content="David Schmitz">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-		<link rel="stylesheet" href="lib/css/koenighotze.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="lib/css/koenighotze.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
 
-				<section data-state="something">
-					<h1>Elixir</h1>
-					<h3>Introduction for the Busy Developer</h3>
-					<img class="elixir-logo" src="logo.png"/>
-					<p>
-						<small><a href="mailto:david.schmitz_AT_senacor.com?subject=Elixir">David Schmitz</a> / <a href="http://twitter.com/koenighotze">@koenighotze</a></small>
-					</p>
-				</section>
-
-<!-- ////////////////////////////////////////////////////////  -->
-
-				<section>
-					<h2>Why should I learn Elixir?</h2>
-					<ul class="simple">
-						<li  class="fragment">
-							...maybe OO is not the only way
-						</li>
-						<li  class="fragment">
-							...maybe functional programming does not require creepy, complex syntax
-						</li>
-						<li  class="fragment">
-							Don't be a robot - Think for yourself!
-						</li>
-					</ul>
-				</section>
+        <section data-state="something">
+          <h1>Elixir</h1>
+          <h3>Introduction for the Busy Developer</h3>
+          <img class="elixir-logo" src="logo.png"/>
+          <p>
+            <small><a href="mailto:david.schmitz_AT_senacor.com?subject=Elixir">David Schmitz</a> / <a href="http://twitter.com/koenighotze">@koenighotze</a></small>
+          </p>
+        </section>
 
 <!-- ////////////////////////////////////////////////////////  -->
 
-				<section>
-					<h2>About Erlang</h2>
-					<ul class="simple">
-						<li class="fragment">
-							Build by Ericsson back in the days (Remember <a href="http://i0.huffpost.com/gen/709271/images/s-MASTERS-OF-THE-UNIVERSE-MOVIE-large.jpg">He-Man</a>?)
-						</li>
-						<li  class="fragment">
-							Awesome virtual machine
-						</li>
-						<li  class="fragment">
-							Six Nines Availability (Ever seen WhatsApp crash?)
-						</li>
-						<li class="fragment">
-							OTP: Open Telecom Platform
-						</li>
-						<li class="fragment">
-						Many so called <i>modern</i> paradigms build in (Messaging, Pattern Matching...)
-						</li>
-					</ul>
-				</section>
+        <section>
+          <h2>Elixir = Power(Erlang) + Love(Ruby)</h2>
+
+          <img class="elixir-logo" src="Erlang_logo.png" height="100" />
+          <svg width="100" height="100">
+            <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+          </svg>
+          <img class="elixir-logo" src="1000px-Ruby_logo.svg.png" height="100" />
+
+          <ul class="simple">
+            <li class="fragment">Pragmatic functional programming</li>
+            <li class="fragment">Scalable and fault tolerant plattform</li>
+            <li class="fragment">Meta-Programming and DSLs</li>
+            <li class="fragment">REPL</li>
+            <li class="fragment">Erlang compatible, BEAM</li>
+          </ul>
+        </section>
+
+<!-- ////////////////////////////////////////////////////////  -->
+
+        <section>
+          <h2>About Erlang</h2>
+          <ul class="simple">
+            <li class="fragment">
+              Build by Ericsson back in the days (Remember <a href="http://i0.huffpost.com/gen/709271/images/s-MASTERS-OF-THE-UNIVERSE-MOVIE-large.jpg">He-Man</a>?)
+            </li>
+            <li  class="fragment">
+              BEAM
+            </li>
+            <li  class="fragment">
+              Six Nines Availability (Ever seen WhatsApp crash?)
+            </li>
+            <li class="fragment">
+              OTP: Open Telecom Platform
+            </li>
+            <li class="fragment">
+            Many so called <i>modern</i> paradigms build in (Messaging, Pattern Matching...)
+            </li>
+            <li class="fragment">
+              ...but rather "baroque" syntax and developer experience
+            </li>
+          </ul>
+        </section>
 
 
 <!-- ////////////////////////////////////////////////////////  -->
 
-				<section>
-					<h2>Enter Elixir</h2>
-					<img class="simple-image" src="X_all_the_Y.png"/>
-				</section>
+        <section>
+          <h2>Enter Elixir</h2>
+          <img class="simple-image" src="X_all_the_Y.png"/>
+        </section>
 
 <!-- ////////////////////////////////////////////////////////  -->
 
-				<section>
-					<h2>Power(Erlang) + Nice Syntax + More</h2>
-					<ul class="simple">
-						<li class="fragment">Pragmatic functional programming</li>
-						<li class="fragment">Scalable and fault tolerant plattform</li>
-						<li class="fragment">Meta-Programming and DSLs</li>
-						<li class="fragment">REPL</li>
-						<li class="fragment">Erlang compatible</li>
-					</ul>
-				</section>
-
-<!-- ////////////////////////////////////////////////////////  -->
-
-				<section>
-					<h2>Taste the Power of Elixir</h2>
+        <section>
+          <h2>Taste the Power of Elixir</h2>
 <pre>
 <code data-trim contenteditable class="elixir">
-
 1..1_000_000
-	|&amp;&gt; Enum.map(&amp;  (Task.async(fn -&gt; &amp;1 * &amp;1 end ) ))
-	|&amp;&gt; Enum.map(&amp;Task.await/1)
-
+  |&gt; map(&amp;  (async( fn -&gt; &amp;1 * &amp;1 end ) ))
+  |&gt; map(&amp;await/1)
 </code>
 </pre>
 Yes, in fact 1.000.000 processes.
-				</section>
+        </section>
 
-				<section>
-						<section>
-						<h2>Elixir Quickstart</h2>
-							<ul class="simple">
-								<li>Use Docker...</li>
-								<li>Start the REPL and get going</li>
-							</ul>
-						</section>
+        <section>
+            <section>
+            <h2>Elixir Quickstart</h2>
+              <ul class="simple">
+                <li>Use Docker...</li>
+                <li>Start the REPL and get going</li>
+              </ul>
+            </section>
 
-						<section>
-							<h2>Run the Docker Image - REPL-Style</h2>
+            <section>
+              <h2>Run the Docker Image - REPL-Style</h2>
 
-						<pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable>
 $ docker run -ti koenighotze/elixir
-						</code></pre>
-					</section>
-					<section>
-						<h2>Use the REPL</h2>
+            </code></pre>
+          </section>
+          <section>
+            <h2>Use the REPL</h2>
 
-					<pre><code data-trim contenteditable class="elixir">
+          <pre><code data-trim contenteditable class="elixir">
 Erlang/OTP 18 [erts-7.0.2] [source] [64-bit] [async-threads:10] [kernel-poll:false]
 
 Interactive Elixir (1.0.5) - press Ctrl+C to exit (type h() ENTER for help)
@@ -156,147 +147,232 @@ iex(1)&gt; &quot;hello&quot; &lt;&gt; &quot; world&quot;
 iex(2)&gt;  2 + 2 + 2 + 2
 8
 iex(3)&gt;
-					</code></pre>
+          </code></pre>
 Just remember, <code>CTRL+C</code> twice to exit.
-				</section>
+        </section>
 
-				<section>
-							<h2>Getting help</h2>
-							<p>For example, the documentation for <code>IO.puts</code> can be found using:</p>
-							<pre><code data-trim contenteditable class="elixir">
+        <section>
+              <h2>Getting help</h2>
+              <p>For example, the documentation for <code>IO.puts</code> can be found using:</p>
+              <pre><code data-trim contenteditable class="elixir">
 iex(3)> h IO.puts
-							</code></pre>
+              </code></pre>
 <p>Keep in mind, that <code>h</code> is short for <code>h/0</code>, meaning <code>h</code> with no arguments.</p>
-				</section>
+        </section>
 
 
-			<section>
-				<h2>Run the Docker Image - Development Style</h2>
+      <section>
+        <h2>Run the Docker Image - Development Style</h2>
 
-			<pre><code data-trim contenteditable>
-$ docker run -ti  -v &lt;YOUR_SCRIPT_DIR&gt;:/home/demo/src \
-		koenighotze/elixir \
-		/bin/bash
+      <pre><code data-trim contenteditable>
+$ docker run -ti  -v &lt;YOUR_SCRIPT_DIR&gt;:/home/elixir/src \
+    koenighotze/elixir \
+    /bin/bash
 / #
-			</code></pre>
+      </code></pre>
+<!--
+      Demo code is located in <code>/home/demo/code</code> -->
+      </section>
 
-			Demo code is located in <code>/home/demo/code</code>
-			</section>
-
-		<section>
-				<h2>Run scripts</h2>
-			<p>From the commandline</p>
-			<pre><code data-trim contenteditable class="elixir">
+    <section>
+        <h2>Run scripts</h2>
+      <p>From the commandline</p>
+      <pre><code data-trim contenteditable class="elixir">
 / # cat hello.exs
 IO.puts "Hello World"
 
 / # elixir hello_world.exs
 Hello World
-			</code></pre>
+      </code></pre>
 
 <p>From the REPL</p>
 <pre><code data-trim contenteditable class="elixir">
 iex(1)> import_file "hello.exs"
 </code></pre>
-			</section>
-				</section>
+      </section>
 
-				<!-- <section>
-						<h2>Compiling</h2>
 
-				</section> -->
+      <section>
+        <h2>Mix - The build system</h2>
+        <ul class="simple">
+          <li class="fragment"></li>
+        </ul>
+<pre><code data-trim contenteditable class="bash">
+$ mix new cool-new-project
+$ cd cool-new-project
+$ mix test --trace
+$ mix test test/some_test_file.exs --trace
+</code></pre>
+      </section>
+
+        </section>
+
 <!-- ////////////////////////////////////////////////////////  -->
 
-					<section>
-						<h2>Language Basics</h2>
+          <section>
+            <h2>Language Basics</h2>
 
-						<p>Speedy introduction to Elixir, so that we can move on to the fun parts.</p>
+            <p>Speedy introduction to Elixir, so that we can move on to the fun parts.</p>
 
-						<ul class="simple">
-							<li class="fragment">Immutability</li>
-							<li class="fragment">Types</li>
-							<li class="fragment">Collections</li>
-							<li class="fragment">Pattern matching</li>
-							<li class="fragment">Control flow</li>
-							<li class="fragment">Unit testing</li>
-							<li class="fragment">Modules</li>
-						</ul>
-					</section>
+            <ul class="simple">
+              <li class="fragment">Immutability</li>
+              <li class="fragment">Types</li>
+              <li class="fragment">Collections</li>
+              <li class="fragment">Pattern matching</li>
+              <li class="fragment">Control flow</li>
+              <li class="fragment">Unit testing</li>
+              <li class="fragment">Modules</li>
+            </ul>
+          </section>
 <!-- ////////////////////////////////////////////////////////  -->
 <section>
-	<section>
-	<h2>Immutability</h2>
-	<blockquote cite="linktotweet">
-		&ldquo;GOTO was evil because we asked, how did I get to this point
-		of execution?'
+  <section>
+  <h2>Immutability</h2>
+  <blockquote cite="linktotweet">
+    <p>&ldquo;GOTO was evil because we asked, how did I get to this point
+    of execution?' </p>
+    <p>
+    Mutability leaves us with, 'how did I get to this state?'&rdquo;</p>
+  </blockquote>
+  </section>
 
-		Mutability leaves us with, 'how did I get to this state?'&rdquo;
-	</blockquote>
-	</section>
+  <section>
+  <h2>Everything is immutable - The End</h2>
+  <ul>
+    <li >Assignment is an assertion</li>
+    <li >Un-unlearning algebraic meaning of <code>=</code></li>
+  </ul>
+<pre><code data-trim contenteditable class="elixir">
+iex(1)> a = 5
+5
+iex(2)> 5 = a
+5
+iex(3)> 6 = a
+** (MatchError) no match of right hand side value: 5
 
-	<section>
-	<h2>Everything is immutable - The End</h2>
-	<ul>
-		<li >Assignment is an assertion</li>
-		<li >Un-unlearning algebraic meaning of <code>=</code></li>
-	</ul>
-	</section>
+iex(3)> ^a = 6
+** (MatchError) no match of right hand side value: 6
+
+iex(3)> a = 6
+6
+</code></pre>
+
+  </section>
 </section
 
 <!-- ////////////////////////////////////////////////////////  -->
-	<section>
-	<h2>Types</h2>
-<pre><code data-trim contenteditable class="elixir">
+  <section>
+  <h2>Types</h2>
+  <ul class="simple">
+    <li class="fragment">
+      <pre><code data-trim contenteditable class="elixir">
 # integers
 a = 1_000_000
 IO.puts a
-
+    </code></pre>
+    </li>
+    <li class="fragment">
+      <pre><code data-trim contenteditable class="elixir">
 # atoms
 b = :foo
 IO.puts b
-
+      </code></pre>
+    </li>
+    <li class="fragment">
+      <pre><code data-trim contenteditable class="elixir">
 # ranges
 Enum.each 1..5, &amp;IO.puts &amp;1
-
+      </code></pre>
+    </li>
+    <li class="fragment">
+      <pre><code data-trim contenteditable class="elixir">
 # Perl-regex
 Regex.replace ~r{[xyz]}i, &quot;SXMYAZRXT&quot;, &quot;_&quot;
 &quot;S_M_A_R_T&quot;
-</code></pre>
-	</section>
+      </code></pre>
+    </li>
+  </ul>
+  </section>
 
 
-	<!-- ////////////////////////////////////////////////////////  -->
-		<section>
-				<section>
-					<h2>Anonymous functions</h2>
+  <!-- ////////////////////////////////////////////////////////  -->
+    <section>
+        <section>
+          <h2>Anonymous functions</h2>
 <pre><code data-trim contenteditable class="elixir">
-iex(1)> sum = fn a, b -> a + b end
-#Function<12.54118792/2 in :erl_eval.expr/5>
-iex(3)> sum.(1, 2)
+iex(1)&gt; sum = fn a, b -&gt; a + b end
+#Function&lt;12.54118792/2 in :erl_eval.expr/5&gt;
+iex(3)&gt; sum.(1, 2)
+iex&gt; sum = &amp;( &amp;1 + &amp;2 )
 </code></pre>
 
 <p>And yes, the dot is needed, even if the function takes no arguments.</p>
 <p>And no, that is not an assigment! Elixir has nothing like assignments.</p>
-				</section>
-		</section>
+        </section>
 
-	<!-- ////////////////////////////////////////////////////////  -->
-		<section>
-				<section>
-					<h2>Collections - Tuples</h2>
 
-					<pre><code data-trim contenteditable class="elixir">
+        <section>
+          <h2>Named functions</h2>
+          <ul class="simple">
+            <li class="fragment">
+      <pre><code data-trim contenteditable class="elixir">
+      def add_two(number), do: number + 2
+      </code></pre>
+      </li>
+
+            <li class="fragment">
+<pre><code data-trim contenteditable class="elixir">
+def do_stuff(list) when is_list(list) do
+  filter(list, map(&amp;( &amp;1 + 3 )), &amp;(rem(&amp;1, 3) == 0 ) )
+end
+</code></pre>
+</li>
+
+<li class="fragment">
+<pre><code data-trim contenteditable class="elixir">
+  def do_stuff(list) when is_list(list) do
+    list
+    |&gt; map(&amp;( &amp;1 + 3 ))
+    |&gt; filter( &amp;(rem(&amp;1, 3) == 0 ) )
+  end
+</code></pre>
+</li>
+
+</ul>
+        </section>
+
+
+        <section>
+          <h2>Our good friend: The pipe operator</h2>
+<pre><code data-trim contenteditable class="elixir">
+def do_stuff(list) when is_list(list) do
+  list
+  |&gt; map(&amp;( &amp;1 + 3 ))
+  |&gt; filter( &amp;(rem(&amp;1, 3) == 0 ) )
+end
+</code></pre>
+
+
+        </section>
+    </section>
+
+  <!-- ////////////////////////////////////////////////////////  -->
+    <section>
+        <section>
+          <h2>Collections - Tuples</h2>
+
+          <pre><code data-trim contenteditable class="elixir">
 iex(14)&gt; {status, file} = File.open(&quot;/etc/hosts&quot;)
 {:ok, #PID&lt;0.75.0&gt;}
 
 iex(17)&gt; {:ok, file} = File.open(&quot;/etc/notthere&quot;)
 ** (MatchError) no match of right hand side value: {:error, :enoent}
-					</code></pre>
-				</section>
-				<section>
-					<h2>Collections - Lists</h2>
+          </code></pre>
+        </section>
+        <section>
+          <h2>Collections - Lists</h2>
 
-					<pre><code data-trim contenteditable class="elixir">
+          <pre><code data-trim contenteditable class="elixir">
 iex(30)&gt; [head | tail] = a
 [1, 2, 3]
 iex(32)&gt; ^head = 1
@@ -310,13 +386,13 @@ iex(38)&gt; a -- [1, 2]
 
 iex(39)&gt; 1 in a
 true
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Collections - Keyword list</h2>
+        <section>
+          <h2>Collections - Keyword list</h2>
 
-					<pre><code data-trim contenteditable class="elixir">
+          <pre><code data-trim contenteditable class="elixir">
 iex(3)&gt; a = [zip: 40589, city: &quot;D&uuml;sseldorf&quot;, team: &quot;F95&quot;]
 [zip: 40589, city: &quot;D&uuml;sseldorf&quot;, team: &quot;F95&quot;]
 
@@ -325,14 +401,14 @@ iex(5)&gt; [h | t] = a
 
 iex(6)&gt; h
 {:zip, 40589}
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
 
-				<section>
-					<h2>Collections - Maps</h2>
+        <section>
+          <h2>Collections - Maps</h2>
 
-					<pre><code data-trim contenteditable class="elixir">
+          <pre><code data-trim contenteditable class="elixir">
 iex(11)&gt; world = %{ :germany =&gt; [1954, 1974, 1990, 2014],
                     :netherlands =&gt; [] }
 %{germany: [1954, 1974, 1990, 2014], netherlands: []}
@@ -342,19 +418,19 @@ iex(12)&gt; world[:germany]
 
 iex(13)&gt; world.germany
 [1954, 1974, 1990, 2014]
-					</code></pre>
-				</section>
-		</section>
+          </code></pre>
+        </section>
+    </section>
 <!-- ////////////////////////////////////////////////////////  -->
 
-					<section>
-						<section>
-						<h2>Pattern matching</h2>
-						</section>
+          <section>
+            <section>
+            <h2>Pattern matching</h2>
+            </section>
 
-						<section>
-							<h2>Simple examples</h2>
-							<pre><code data-trim contenteditable class="elixir">
+            <section>
+              <h2>Simple examples</h2>
+              <pre><code data-trim contenteditable class="elixir">
 iex(1)&gt; a = [1, 2, 3]
 [1, 2, 3]
 
@@ -373,12 +449,12 @@ iex(10)&gt; [[a]] = [[1, 2, 3]]
 
 iex(10)&gt; [a, b, _] = [1, 2, 3]
 [1, 2, 3]
-						</code></pre>
-						</section>
+            </code></pre>
+            </section>
 
-						<section>
-							<h2>Bindings</h2>
-							<pre><code data-trim contenteditable class="elixir">
+            <section>
+              <h2>Bindings</h2>
+              <pre><code data-trim contenteditable class="elixir">
 iex(12)&gt; [a, b, a] = [1, 2, 3]
 ** (MatchError) no match of right hand side value: [1, 2, 3]
 
@@ -389,28 +465,28 @@ iex(18)&gt; a = 2
 2
 iex(19)&gt; ^a = 1
 ** (MatchError) no match of right hand side value: 1
-							</code></pre>
-						</section>
-					</section>
+              </code></pre>
+            </section>
+          </section>
 
 
 
 <!-- ////////////////////////////////////////////////////////  -->
 
-					<section>
-						<h2>Control flow</h2>
+          <section>
+            <h2>Control flow</h2>
 
-						<pre><code data-trim contenteditable class="elixir">
-						</code></pre>
-					</section>
+            <pre><code data-trim contenteditable class="elixir">
+            </code></pre>
+          </section>
 
 <!-- ////////////////////////////////////////////////////////  -->
 
-					<section>
-						<section>
-							<h2>Unit Testing</h2>
+          <section>
+            <section>
+              <h2>Unit Testing</h2>
 
-							<pre><code data-trim contenteditable class="elixir">
+              <pre><code data-trim contenteditable class="elixir">
 defmodule Ex3Test do
   use ExUnit.Case
 
@@ -421,12 +497,12 @@ defmodule Ex3Test do
   end
 end
 
-							</code></pre>
-						</section>
-						<section>
-							<h2>Running tests</h2>
+              </code></pre>
+            </section>
+            <section>
+              <h2>Running tests</h2>
 
-							<pre><code data-trim contenteditable class="bash">
+              <pre><code data-trim contenteditable class="bash">
 $ mix test  --trace
 Ex3Test
   * list concat concats two lists (0.00ms)
@@ -435,191 +511,181 @@ Finished in 0.03 seconds (0.03s on load, 0.00s on tests)
 1 test, 0 failures
 
 Randomized with seed 632080
-							</code></pre>
-						</section>
+              </code></pre>
+            </section>
 
 
-					</section>
-
-<!-- ////////////////////////////////////////////////////////  -->
-
-					<section>
-						<h2>Modules</h2>
-
-						<pre><code data-trim contenteditable class="elixir">
-						</code></pre>
-					</section>
+          </section>
 
 <!-- ////////////////////////////////////////////////////////  -->
 
-				<section>
-					<h2>And now...the advanced stuff</h2>
-				</section>
+          <section>
+            <h2>Modules</h2>
+
+            <pre><code data-trim contenteditable class="elixir">
+            </code></pre>
+          </section>
 
 <!-- ////////////////////////////////////////////////////////  -->
 
-				<section>
-					<section>
-					<h2>Concurrency</h2>
+        <section>
+          <h2>And now...the advanced stuff</h2>
+        </section>
 
-					PID: a PID is a refernce to a process
+<!-- ////////////////////////////////////////////////////////  -->
 
-					Port: a reference to a resource for reading or writing
-					<ul class="simple">
-						<li class="fragment">Processes and nodes</li>
-						<li class="fragment">OTP</li>
-						<li class="fragment">Tasks and agents</li>
-					</ul>
-					</section>
-					<section>
-						<h2>Processes and nodes</h2>
+        <section>
+          <section>
+          <h2>Concurrency</h2>
 
-					</section>
-					<section>
-						<h2>Scalability: Lightweight Processes</h2>
+          PID: a PID is a refernce to a process
 
-						<pre><code data-trim contenteditable>
-						</code></pre>
-					</section>
+          Port: a reference to a resource for reading or writing
+          <ul class="simple">
+            <li class="fragment">Processes and nodes</li>
+            <li class="fragment">OTP</li>
+            <li class="fragment">Tasks and agents</li>
+          </ul>
+          </section>
+          <section>
+            <h2>Processes and nodes</h2>
 
-					<section>
-						<h2>Fault Tolerance: Supervisor</h2>
+          </section>
+          <section>
+            <h2>Scalability: Lightweight Processes</h2>
 
-						<pre><code data-trim contenteditable>
-						</code></pre>
-					</section>
-					<section>
-						<h2>OTP</h2>
-					</section>
-					<section>
-						<h2>Tasks and agents</h2>
-					</section>
-				</section>
+            <pre><code data-trim contenteditable>
+            </code></pre>
+          </section>
 
-				<section>
-					<h2>Meta Programming</h2>
+          <section>
+            <h2>Fault Tolerance: Supervisor</h2>
 
-					<pre><code data-trim contenteditable>
-					</code></pre>
-				</section>
+            <pre><code data-trim contenteditable>
+            </code></pre>
+          </section>
+          <section>
+            <h2>OTP</h2>
+          </section>
+          <section>
+            <h2>Tasks and agents</h2>
+          </section>
+        </section>
 
-				<section>
-					<h2>Protocols</h2>
-					Polymorphic functions...
-					<pre><code data-trim contenteditable>
-					</code></pre>
-				</section>
+        <section>
+          <h2>Meta Programming</h2>
 
-				<section>
-					<section>
-					<h2>Sample Real World Applications</h2>
-					<ul class="simple">
-						<li class="fragment">Simple Web Application</li>
-						<li class="fragment">Book Database that integrates with Amazon</li>
-						<li class="fragment">CRUD</li>
-					</ul>
-					<p><a href="github">github.com/koenighotze/busy_elixir_app</a></p>
-					<br>
-					<a href="#" class="navigate-down">
-						<img width="50" data-src="arrow.png" alt="Down arrow">
-					</a>
-					</section>
-					<section>
-						<h2>Overview</h2>
-						<ul class="simple">
-							<li class="fragment">Build system: mix</li>
-							<li class="fragment">Web framework: Phoenix</li>
-						</ul>
-					</section>
+          <pre><code data-trim contenteditable>
+          </code></pre>
+        </section>
 
-					<section>
-						<h2>Mix - The Build System</h2>
-						<ul class="simple">
-							<li class="fragment"></li>
-						</ul>
-<pre><code data-trim contenteditable class="bash">
-$ mix new cool-new-project
-$ cd cool-new-project
-$ mix test
-</code></pre>
-					</section>
+        <section>
+          <h2>Protocols</h2>
+          Polymorphic functions...
+          <pre><code data-trim contenteditable>
+          </code></pre>
+        </section>
 
-					<section>
-						<h2>Phoenix - The Web Framework</h2>
-						<ul class="simple">
-							<li class="fragment"></li>
-						</ul>
-					</section>
+        <section>
+          <section>
+          <h2>Sample Real World Applications</h2>
+          <ul class="simple">
+            <li class="fragment">Simple Web Application</li>
+            <li class="fragment">Book Database that integrates with Amazon</li>
+            <li class="fragment">CRUD</li>
+          </ul>
+          <p><a href="github">github.com/koenighotze/busy_elixir_app</a></p>
+          <br>
+          <a href="#" class="navigate-down">
+            <img width="50" data-src="arrow.png" alt="Down arrow">
+          </a>
+          </section>
+          <section>
+            <h2>Overview</h2>
+            <ul class="simple">
+              <li class="fragment">Build system: mix</li>
+              <li class="fragment">Web framework: Phoenix</li>
+            </ul>
+          </section>
 
-				</section>
 
-				<section>
-					<h2>What's Next?</h2>
-					Should we all start using Elixir?
-					<pre><code data-trim contenteditable>
+
+          <section>
+            <h2>Phoenix - The Web Framework</h2>
+            <ul class="simple">
+              <li class="fragment"></li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>What's Next?</h2>
+          Should we all start using Elixir?
+          <pre><code data-trim contenteditable>
 mix
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
 
 
-				<section>
-					<h2>Online Resources</h2>
-					<p>Try one of these great vaults of wisdom:</p>
+        <section>
+          <h2>Online Resources</h2>
+          <p>Try one of these great vaults of wisdom:</p>
 
-					<ul>
-						<li><a href="http://elixir-lang.org/">Elixir Homepage</a></li>
-						<li>Dave Thomas, Programming Elixir</li>
-						<li>José Valim, Introduction to Elixir - a New Language on the VM (TODO Youtube-link)</li>
-					</ul>
-				</section>
+          <ul>
+            <li><a href="http://elixir-lang.org/">Elixir Homepage</a></li>
+            <li>Dave Thomas, Programming Elixir</li>
+            <li>José Valim, Introduction to Elixir - a New Language on the VM (TODO Youtube-link)</li>
+          </ul>
+        </section>
 
 
-				<section style="text-align: left;">
-					<h1>Thank You!</h1>
-					Questions? Feedback?
-					<p>
-						<small><a href="mailto:david.schmitz_AT_senacor.com?subject=Elixir">David Schmitz</a> / <a href="http://twitter.com/koenighotze">@koenighotze</a></small>
-					</p>
-				</section>
-			</div>
+        <section style="text-align: left;">
+          <h1>Thank You!</h1>
+          Questions? Feedback?
+          <p>
+            <small><a href="mailto:david.schmitz_AT_senacor.com?subject=Elixir">David Schmitz</a> / <a href="http://twitter.com/koenighotze">@koenighotze</a></small>
+          </p>
+        </section>
+      </div>
 
-		</div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-		<a href="https://github.com/koenighotze/talks-elixir-intro">
-			<img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png">
-		</a>
+    <a href="https://github.com/koenighotze/talks-elixir-intro">
+      <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png">
+    </a>
 
-		<script>
+    <script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				slideNumber: true,
-				help: true,
-				previewLinks: true,
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+        help: true,
+        previewLinks: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
 
-		</script>
+    </script>
 
-	</body>
+  </body>
 </html>

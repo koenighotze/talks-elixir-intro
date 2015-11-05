@@ -19,17 +19,16 @@ RUN cp /usr/share/zoneinfo/Europe/Berlin  /etc/timezone
 # install sources
 RUN apt-get -y install unzip
 
-RUN useradd  -d /home/elixir/ -m -U elixir
-USER elixir
-WORKDIR /tmp/
-RUN wget https://github.com/koenighotze/talks-elixir-intro/archive/master.zip && unzip -d $HOME master.zip && rm master.zip
-RUN wget https://github.com/phoenixframework/phoenix/archive/master.zip && unzip -d $HOME master.zip && rm master.zip
-RUN wget https://github.com/elixir-lang/elixir/archive/master.zip && unzip -d $HOME master.zip && rm master.zip
+# RUN useradd  -d /home/elixir/ -m -U elixir
+# USER elixir currently the way docker handles mounts if fu$$ed up, so I'll leave it as root
+WORKDIR /home/elixir/
+RUN wget https://github.com/koenighotze/talks-elixir-intro/archive/master.zip && unzip master.zip && rm master.zip
+RUN wget https://github.com/phoenixframework/phoenix/archive/master.zip && unzip master.zip && rm master.zip
+RUN wget https://github.com/elixir-lang/elixir/archive/master.zip && unzip master.zip && rm master.zip
 
 RUN mix local.hex
 RUN mix archive.install --force https://github.com/phoenixframework/phoenix/releases/download/v1.0.3/phoenix_new-1.0.3.ez
 
-WORKDIR /home/elixir/
 
 # setup volume for sharing scripts
 ENV SCRIPTS_VOLUME $HOME/src

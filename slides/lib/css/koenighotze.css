@@ -1,11 +1,12 @@
 ul.simple {
   list-style: none;
+  width: 100%;
 }
 
 section img.elixir-logo {
   background-color: white;
   border: medium none;
-  padding: 1em;
+  padding: 0.5em;
 }
 
 section img.simple-image {
@@ -18,5 +19,9 @@ section p {
 }
 
 .something {
+  background-color: white;
+}
+
+img.fill {
   background-color: white;
 }
