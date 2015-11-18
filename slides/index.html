@@ -57,9 +57,7 @@
           <h2>Elixir = Power(Erlang) + Love(Ruby)</h2>
 
           <img class="elixir-logo" src="Erlang_logo.png" height="100" />
-          <svg width="100" height="100">
-            <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-          </svg>
+
           <img class="elixir-logo" src="1000px-Ruby_logo.svg.png" height="100" />
 
           <ul class="simple">
@@ -340,20 +338,6 @@ end
 
 </ul>
         </section>
-
-
-        <section>
-          <h2>Our good friend: The pipe operator</h2>
-<pre><code data-trim contenteditable class="elixir">
-def do_stuff(list) when is_list(list) do
-  list
-  |&gt; map(&amp;( &amp;1 + 3 ))
-  |&gt; filter( &amp;(rem(&amp;1, 3) == 0 ) )
-end
-</code></pre>
-
-
-        </section>
     </section>
 
   <!-- ////////////////////////////////////////////////////////  -->
@@ -361,23 +345,36 @@ end
         <section>
           <h2>Collections - Tuples</h2>
 
+<ul class="simple">
+  <li class="fragment">
           <pre><code data-trim contenteditable class="elixir">
 iex(14)&gt; {status, file} = File.open(&quot;/etc/hosts&quot;)
 {:ok, #PID&lt;0.75.0&gt;}
-
-iex(17)&gt; {:ok, file} = File.open(&quot;/etc/notthere&quot;)
-** (MatchError) no match of right hand side value: {:error, :enoent}
           </code></pre>
+    </li>
+
+    <li class="fragment">
+            <pre><code data-trim contenteditable class="elixir">
+  iex(17)&gt; {:ok, file} = File.open(&quot;/etc/notthere&quot;)
+  ** (MatchError) no match of right hand side value: {:error, :enoent}
+            </code></pre>
+      </li>
+</ul>
         </section>
         <section>
           <h2>Collections - Lists</h2>
-
-          <pre><code data-trim contenteditable class="elixir">
+          <ul class="simple">
+        <li class="fragment">
+      <pre><code data-trim contenteditable class="elixir">
 iex(30)&gt; [head | tail] = a
 [1, 2, 3]
 iex(32)&gt; ^head = 1
 iex(34)&gt; ^tail = [2, 3]
+      </code></pre>
+    </li>
 
+            <li class="fragment">
+          <pre><code data-trim contenteditable class="elixir">
 iex(37)&gt; a ++ [4, 5, 6]
 [1, 2, 3, 4, 5, 6]
 
@@ -387,21 +384,30 @@ iex(38)&gt; a -- [1, 2]
 iex(39)&gt; 1 in a
 true
           </code></pre>
+        </li>
+      </ul>
         </section>
 
         <section>
           <h2>Collections - Keyword list</h2>
-
-          <pre><code data-trim contenteditable class="elixir">
+<ul class="simple">
+  <li class="fragment">
+    <pre><code data-trim contenteditable class="elixir">
 iex(3)&gt; a = [zip: 40589, city: &quot;D&uuml;sseldorf&quot;, team: &quot;F95&quot;]
 [zip: 40589, city: &quot;D&uuml;sseldorf&quot;, team: &quot;F95&quot;]
+    </code></pre>
+  </li>
 
+        <li class="fragment">
+          <pre><code data-trim contenteditable class="elixir">
 iex(5)&gt; [h | t] = a
 [zip: 40589, city: &quot;D&uuml;sseldorf&quot;, team: &quot;F95&quot;]
 
 iex(6)&gt; h
 {:zip, 40589}
           </code></pre>
+        </li>
+</ul>
         </section>
 
 
@@ -430,26 +436,40 @@ iex(13)&gt; world.germany
 
             <section>
               <h2>Simple examples</h2>
+<ul class="simple">
+  <li class="fragment">
               <pre><code data-trim contenteditable class="elixir">
 iex(1)&gt; a = [1, 2, 3]
 [1, 2, 3]
 
 iex(5)&gt; [a, b] = [1, 2]
 [1, 2]
+            </code></pre>
+</li>
+<li class="fragment">
+            <pre><code data-trim contenteditable class="elixir">
 iex(6)&gt; [a, b] = [1, 2, 3]
 ** (MatchError) no match of right hand side value: [1, 2, 3]
-
+          </code></pre>
+</li>
+  <li class="fragment">
+              <pre><code data-trim contenteditable class="elixir">
 iex(8)&gt; [a] = [[1, 2, 3]]
 [[1, 2, 3]]
 iex(9)&gt; a
 [1, 2, 3]
-
+            </code></pre>
+</li>
+<li class="fragment">
+            <pre><code data-trim contenteditable class="elixir">
 iex(10)&gt; [[a]] = [[1, 2, 3]]
 ** (MatchError) no match of right hand side value: [[1, 2, 3]]
 
 iex(10)&gt; [a, b, _] = [1, 2, 3]
 [1, 2, 3]
-            </code></pre>
+          </code></pre>
+</li>
+</ul>
             </section>
 
             <section>
@@ -474,10 +494,54 @@ iex(19)&gt; ^a = 1
 <!-- ////////////////////////////////////////////////////////  -->
 
           <section>
-            <h2>Control flow</h2>
+            <section>
+
+            <h2>Control flow - Recursion</h2>
 
             <pre><code data-trim contenteditable class="elixir">
+
+def take([], _), do: []
+
+
+def take(_, 0), do: []
+
+
+def take([h | t], num) do
+  [h | take(t, num - 1)]
+end
             </code></pre>
+          </section>
+
+          <section>
+
+          <h2>Guards</h2>
+
+          <pre><code data-trim contenteditable class="elixir">
+def mymax([h|t]) do
+  _max(h, t)
+end
+
+defp _max(current, []) do
+  current
+end
+
+defp _max(current, [h | t]) when current < h do
+  _max(h, t)
+end
+
+defp _max(current, [h | t]) when current >= h do
+  _max(current, t)
+end
+          </code></pre>
+        </section>
+
+        <section>
+
+        <h2>If</h2>
+
+        <pre><code data-trim contenteditable class="elixir">
+        </code></pre>
+      </section>
           </section>
 
 <!-- ////////////////////////////////////////////////////////  -->
@@ -523,6 +587,18 @@ Randomized with seed 632080
             <h2>Modules</h2>
 
             <pre><code data-trim contenteditable class="elixir">
+defmodule Chapter8 do
+  defmodule Sum do
+
+    import Enum, only: [sum: 1]
+
+    def sum_of_values(dict) do
+      dict
+      |> Dict.values
+      |> sum
+    end
+  end
+end
             </code></pre>
           </section>
 
