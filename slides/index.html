@@ -426,6 +426,37 @@ iex(13)&gt; world.germany
 [1954, 1974, 1990, 2014]
           </code></pre>
         </section>
+
+        <section>
+          <h2>Collections - Comprehensions</h2>
+
+          <pre><code data-trim contenteditable class="elixir">
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Collections - Streams</h2>
+
+          <pre><code data-trim contenteditable class="elixir">
+cycle(~w{foo bar})
+  |> zip(1..1_000_000)
+  |> map(fn { s, i } ->
+            ~s{ The current value of #{s} would be #{i}  }
+         end)
+  |> Enum.take(3)
+  |> IO.puts
+          </code></pre>
+        </section>
+        <section>
+          <h2>Collections - Streams</h2>
+          Fibonacci stream
+          <pre><code data-trim contenteditable class="elixir">
+res = unfold( {0, 1}, fn { n1, n2 } -> { n1, { n2, n1 + n2 }} end)
+      |> Enum.take(10)
+
+assert res == [ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+      </code></pre>
+        </section>
     </section>
 <!-- ////////////////////////////////////////////////////////  -->
 
@@ -499,12 +530,9 @@ iex(19)&gt; ^a = 1
             <h2>Control flow - Recursion</h2>
 
             <pre><code data-trim contenteditable class="elixir">
+def take([], _), do: [] &br;
 
-def take([], _), do: []
-
-
-def take(_, 0), do: []
-
+def take(_, 0), do: [] &br;
 
 def take([h | t], num) do
   [h | take(t, num - 1)]
@@ -514,7 +542,7 @@ end
 
           <section>
 
-          <h2>Guards</h2>
+          <h2>Control flow - Guards</h2>
 
           <pre><code data-trim contenteditable class="elixir">
 def mymax([h|t]) do
@@ -537,7 +565,7 @@ end
 
         <section>
 
-        <h2>If</h2>
+        <h2>Control flow - If</h2>
 
         <pre><code data-trim contenteditable class="elixir">
         </code></pre>
