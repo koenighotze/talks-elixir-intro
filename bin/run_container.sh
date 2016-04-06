@@ -1,1 +1,2 @@
-docker run -i -t --volumes-from ElixirREPL  --name Elixir koenighotze/elixir /bin/bash
+#!/bin/bash
+docker run --name=elixir -ti -v $PWD:/home/elixir/src koenighotze/elixir /bin/bash

@@ -9,12 +9,12 @@ ENV LC_ALL en_US.UTF-8
 
 RUN apk-install wget git postgresql elixir vim unzip bash erlang-crypto erlang-syntax-tools openrc
 RUN adduser elixir -h /home/elixir -s /bin/bash -D
+
 USER elixir
 WORKDIR /home/elixir/
 RUN wget -nv https://github.com/koenighotze/talks-elixir-intro/archive/master.zip && unzip -q master.zip && rm master.zip
 RUN wget -nv https://github.com/phoenixframework/phoenix/archive/master.zip && unzip -q master.zip && rm master.zip
 RUN wget -nv https://github.com/elixir-lang/elixir/archive/master.zip && unzip -q master.zip && rm master.zip
-#
 RUN mix local.hex
 RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
 

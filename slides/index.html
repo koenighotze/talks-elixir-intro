@@ -431,6 +431,20 @@ iex(13)&gt; world.germany
           <h2>Collections - Comprehensions</h2>
 
           <pre><code data-trim contenteditable class="elixir">
+data = [
+  %{movie: "Batman v Superman", rating: 7, director: "Zack Snyder"},
+  %{movie: "BFG", rating: 10, director: "Steven Spielberg"},
+  %{movie: "The Force Awakens", rating: 9, director: "J.J. Abrahms"}
+]
+
+for movie <- data,
+    movie.rating > 7,
+    do: IO.puts "#{inspect movie}"
+          </code></pre>
+
+          <pre><code data-trim contenteditable class="elixir">
+%{director: "Steven Spielberg", movie: "BFG", rating: 10}
+%{director: "J.J. Abrahms", movie: "The Force Awakens", rating: 9}
           </code></pre>
         </section>
 
