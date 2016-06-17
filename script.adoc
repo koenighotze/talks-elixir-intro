@@ -1,0 +1,135 @@
+
+# Elixir Draft
+
+## Getting started
+
+[source,shell]
+----
+include::demo/run_docker.sh[]
+----
+
+[source,shell]
+----
+include::demo/new_proj.sh[]
+----
+
+
+[graphviz]
+....
+digraph G {
+ NOT_ACTIVE -> ACTIVE;
+}
+....
+
+
+## Write a test
+
+[source,elixir]
+----
+include::demo/bootstrap/fibnew/test/fib_test.exs[]
+----
+
+## Run the test
+
+```shell
+mix test
+```
+
+## Fix the test
+
+[source,elixir]
+----
+include::demo/bootstrap/fibnew/lib/fib.ex[]
+----
+
+## Fix the test in a real way
+
+[source,elixir]
+----
+include::demo/bootstrap/fibnew/lib/fib2.ex[]
+----
+
+## Demo distributed Fib
+
+
+
+
+## Building nodes
+
+Start two node
+
+```
+bash-4.3$ iex --name one@172.17.0.2 --cookie foo -S mix
+bash-4.3$ iex --name two@172.17.0.3 --cookie foo -S mix
+```
+
+On first node
+
+```
+iex(one@172.17.0.2)7> Node.connect :"two@172.17.0.3"
+true
+iex(one@172.17.0.2)8> Node.list
+[:"two@172.17.0.3"]
+iex(one@172.17.0.2)13> cd ("..")
+/home/elixir/src/talks-elixir-intro/demo/bootstrap
+iex(one@172.17.0.2)14> pwd
+```
+
+On second node
+
+```
+iex(two@172.17.0.3)9> Node.spawn(:"one@172.17.0.2", fn -> ls end)
+iex(two@172.17.0.3)9> Node.list
+```
+
+
+
+## Genserver / Supervisors
+
+### Building a distributed Hello World
+
+Create a server
+
+[source,elixir]
+----
+include::demo/helloserver/lib/hello.ex[]
+----
+
+Play around in REPL
+
+```
+$ iex -S mix
+iex(1)> {:ok, pid} = GenServer.start_link(Hello, [])
+iex(3)> GenServer.call(pid, %{:hello =>  "David"})
+"Hello David"
+```
+
+### Complex example
+
+```
+bash-4.3$ mix -h
+bash-4.3$ mix new timetable
+```
+
+Create the Timetablestore
+
+[source,elixir]
+----
+include::demo/bootstrap/fahrplanauskunft/lib/timetablestore.ex[]
+----
+
+
+Add the following to mix.ex
+
+```
+{:httpoison, "~> 0.8"},
+{:ex_doc, "~> 0.11.4"},
+{:earmark, ">= 0.0.0"},
+{:erlsom, "~> 1.2"}
+```
+
+Fetch the deps
+
+```
+bash-4.3$ mix deps.get
+```
