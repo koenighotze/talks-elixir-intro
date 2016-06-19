@@ -1,2 +1,0 @@
-defmodule Fahrplanauskunft do
-end

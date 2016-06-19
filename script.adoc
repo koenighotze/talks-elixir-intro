@@ -1,4 +1,3 @@
-
 # Elixir Draft
 
 ## Getting started
@@ -13,57 +12,134 @@ include::demo/run_docker.sh[]
 include::demo/new_proj.sh[]
 ----
 
+## Basics
 
-[graphviz]
-....
-digraph G {
- NOT_ACTIVE -> ACTIVE;
-}
-....
+Create the project
 
+```
+$ mix new basics
 
-## Write a test
+```
+
+### Fib
+
+Create a fib module test driven.
 
 [source,elixir]
 ----
-include::demo/bootstrap/fibnew/test/fib_test.exs[]
+include::demo/basic/test/fib_test.exs[]
 ----
-
-## Run the test
-
-```shell
-mix test
-```
-
-## Fix the test
 
 [source,elixir]
 ----
-include::demo/bootstrap/fibnew/lib/fib.ex[]
+include::demo/basic/lib/fib.ex[]
 ----
 
-## Fix the test in a real way
+### Sum
 
 [source,elixir]
 ----
-include::demo/bootstrap/fibnew/lib/fib2.ex[]
+include::demo/basic/test/sum_test.exs[]
 ----
 
-## Demo distributed Fib
+[source,elixir]
+----
+include::demo/basic/lib/sum.ex[]
+----
 
+## Supervisor + GenServer demo
 
+### A simple Genserver
 
-
-## Building nodes
-
-Start two node
+#### Create new project
 
 ```
-bash-4.3$ iex --name one@172.17.0.2 --cookie foo -S mix
-bash-4.3$ iex --name two@172.17.0.3 --cookie foo -S mix
+$ mix new supandgen --sup
 ```
 
-On first node
+#### Create quad gen server
+
+[source,elixir]
+----
+include::demo/supandgen/lib/quadserver.ex[]
+----
+
+#### Try it
+
+```
+bash-4.3$ iex -S mix
+iex(4)> QuadServer.start_link
+iex(4)> QuadServer.quad_a_list([1,2,3])
+iex(4)> 1..100 |> Enum.to_list |> QuadServer.quad_a_list
+```
+
+*BOOM*
+
+#### Make it async
+
+[source,elixir]
+----
+include::demo/supandgen/lib/quadserver_async.ex[]
+----
+
+#### Try it
+
+```
+bash-4.3$ iex -S mix
+iex(4)> QuadServerAsync.start_link
+iex(4)> 1..100_000 |> Enum.to_list |> QuadServerAsync.quad_a_list_async
+```
+
+*KILL IT*
+
+```
+iex> pid = GenServer.whereis(QuadServerAsync)
+iex> Process.exit(pid, :kill)
+```
+
+### Making it stable using a supervisor
+
+Add the following to `supandgen.ex`
+
+```elixir
+children = [
+  worker(QuadServerAsync, []),
+]
+```
+
+Add the following to `quadserver_async.ex`
+
+```elixir
+import Logger
+
+def init(_) do
+  info("Initialising QuadServerAsync")
+  {:ok, []}
+end
+```
+
+*KILL IT...AGAIN*
+
+```
+iex> pid = GenServer.whereis(QuadServerAsync)
+iex> Process.exit(pid, :kill)
+iex> Supervisor.which_children(Supandgen.Supervisor)
+[{QuadServerAsync, #PID<0.88.0>, :worker, [QuadServerAsync]}]
+iex> [   {_, pid, _, _ } ] = Supervisor.which_children(Supandgen.Supervisor)
+iex> Process.exit(pid, :kill)
+```
+
+## Nodes
+
+### Start two nodes
+
+```
+$ iex --name one@172.17.0.2 --cookie foo -S mix
+$ docker exec -ti devcon bash
+$ iex --name two@172.17.0.3 --cookie foo -S mix
+```
+
+### On first node
 
 ```
 iex(one@172.17.0.2)7> Node.connect :"two@172.17.0.3"
@@ -75,61 +151,45 @@ iex(one@172.17.0.2)13> cd ("..")
 iex(one@172.17.0.2)14> pwd
 ```
 
-On second node
+### On second node
 
 ```
 iex(two@172.17.0.3)9> Node.spawn(:"one@172.17.0.2", fn -> ls end)
 iex(two@172.17.0.3)9> Node.list
 ```
 
-
-
-## Genserver / Supervisors
-
-### Building a distributed Hello World
-
-Create a server
-
-[source,elixir]
-----
-include::demo/helloserver/lib/hello.ex[]
-----
-
-Play around in REPL
+### Define code on first node
 
 ```
-$ iex -S mix
-iex(1)> {:ok, pid} = GenServer.start_link(Hello, [])
-iex(3)> GenServer.call(pid, %{:hello =>  "David"})
-"Hello David"
+iex(one@172.17.0.2)1> defmodule Foo do
+...(one@172.17.0.2)1> def bar(n), do: IO.puts(n)
+...(one@172.17.0.2)1> end
 ```
 
-### Complex example
+### Try running it on second node
 
 ```
-bash-4.3$ mix -h
-bash-4.3$ mix new timetable
+iex(two@172.17.0.3)3> Foo.bar(3)
+** (UndefinedFunctionError) undefined function Foo.bar/1 (module Foo is not available)
+    Foo.bar(3)
+iex(two@172.17.0.3)3> Node.spawn_link(one, fn -> Foo.bar(3) end)
 ```
 
-Create the Timetablestore
+### Send code between nodes
 
-[source,elixir]
-----
-include::demo/bootstrap/fahrplanauskunft/lib/timetablestore.ex[]
-----
-
-
-Add the following to mix.ex
+On node one
 
 ```
-{:httpoison, "~> 0.8"},
-{:ex_doc, "~> 0.11.4"},
-{:earmark, ">= 0.0.0"},
-{:erlsom, "~> 1.2"}
+iex(one@172.17.0.2)8> {_, _, binary, _} = v(2)
+iex(one@172.17.0.2)10> :rpc.call :"two@172.17.0.3", :code, :load_binary, [Foo2, 'iex', binary ]
+{:module, Foo2}
+iex(one@172.17.0.2)11>
 ```
 
-Fetch the deps
+On node two
 
 ```
-bash-4.3$ mix deps.get
+iex(two@172.17.0.3)8> Foo2.bar(3)
+3
+:ok
 ```
