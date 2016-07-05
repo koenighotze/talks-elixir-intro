@@ -7,3 +7,5 @@ dist/
 .DS_Store
 .gitignore_conflict*
 .gitignore.*
+_backup/
+demo/olde/
